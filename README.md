@@ -93,7 +93,7 @@ The site is set up so that search engines ignore it. When you are ready to show 
 
 1. Delete the `noindex, nofollow` meta tag in `dore-prototype/index.html`.
 2. Replace the contents of `dore-prototype/public/robots.txt` with `User-agent: *` and `Allow: /`.
-3. If you move to a custom domain, update the `og:url` and `og:image` addresses in `index.html`. The preview image is `public/og-image.png`, 1200 by 630.
+3. If you move to a custom domain, update the `og:url` and `og:image` addresses in `index.html`. The preview image is `public/og-dore.png`, 2400 by 1260.
 4. Check `CREDITS.md`: the source and licence of the property photos, team portraits, journal photos, videos and illustrations are still to be confirmed.
 
 ## Credits
