@@ -1,0 +1,222 @@
+@import "tailwindcss";
+@import "@fontsource/sedan/latin-400.css";
+@import "@fontsource/sedan/latin-400-italic.css";
+@import "@fontsource-variable/nata-sans/wght.css";
+
+/* ------------------------------------------------------------------
+   Doré tokens. Everything below becomes a Tailwind utility:
+   bg-linen, text-ink, text-28, p-lg, gap-6xl, max-w-content, md:...
+   ------------------------------------------------------------------ */
+@theme {
+  /* Palette: Sun and Sea. Hex values from the brand palette. */
+  --color-*: initial;
+  --color-linen: #fefaf3; /* base surface, and "white" text on dark */
+  --color-vino-bianco: #ffe4c4; /* soft tint */
+  --color-limone: #fff19d; /* highlight surface */
+  --color-azzuro: #b1d2dd; /* soft sea tint */
+  --color-citrine: #e6b862; /* feature sections, ink text */
+  --color-pear-tree: #c7b97a; /* quiet feature surface, ink text only */
+  --color-clay: #cf8d60; /* warm mid surface, ink text only */
+  --color-terracotta: #d35b2f; /* accent and buttons, ink text only */
+  --color-terracotta-text: #a84318; /* terracotta as small text on light (5.8:1 on linen) */
+  --color-cerulean: #3364a9; /* dark section, linen text */
+  --color-cerulean-deep: #274c86; /* pressed state (8.2:1 with linen) */
+  --color-hillside: #456940; /* dark section, linen text */
+  --color-ink: #1a1512; /* primary text and darkest sections */
+  --color-ink-muted: #534e4a; /* muted text on linen, vino, limone, azzuro */
+  --color-white: #ffffff;
+  --color-transparent: transparent;
+  --color-current: currentColor;
+
+  /* Fonts */
+  --font-*: initial;
+  --font-display: "Sedan", "EB Garamond", Georgia, serif;
+  --font-sans: "Nata Sans Variable", "Nata Sans", system-ui, sans-serif;
+
+  /* One type scale, 8 sizes. Name = px size. Body L 16, M 14, S 12. */
+  --text-*: initial;
+  --text-11: 11px;
+  --text-11--line-height: 16px;
+  --text-11--letter-spacing: 0.14em;
+  --text-12: 12px;
+  --text-12--line-height: 1.65;
+  --text-14: 14px;
+  --text-14--line-height: 1.65;
+  --text-16: 16px;
+  --text-16--line-height: 1.6;
+  --text-28: 28px;
+  --text-28--line-height: 1.3;
+  --text-40: 40px;
+  --text-40--letter-spacing: -0.02em;
+  --text-40--line-height: 1.1;
+  --text-56: 56px;
+  --text-56--letter-spacing: -0.025em;
+  --text-56--line-height: 1.05;
+  --text-72: 72px;
+  --text-72--letter-spacing: -0.03em;
+  --text-72--line-height: 1.02;
+
+  /* Spacing tokens (Figma space/*). Numeric Tailwind steps still work. */
+  --spacing-2xs: 4px;
+  --spacing-xs: 8px;
+  --spacing-sm: 12px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 28px;
+  --spacing-2xl: 32px;
+  --spacing-3xl: 40px;
+  --spacing-4xl: 48px;
+  --spacing-5xl: 64px;
+  --spacing-6xl: 80px;
+  --spacing-7xl: 120px;
+  --spacing-8xl: 160px;
+  --spacing-nav: 80px;
+
+  /* Fixed layout widths from the layouts */
+  --container-*: initial;
+  --container-page: 1440px;
+  --container-content: 1200px;
+  --container-wide: 880px;
+  --container-intro: 720px;
+  --container-hero: 700px;
+  --container-split: 560px;
+  --container-quote: 560px;
+  /* container-query sizes (@md, @xl, @3xl) */
+  --container-sm: 24rem;
+  --container-md: 28rem;
+  --container-lg: 32rem;
+  --container-xl: 36rem;
+  --container-2xl: 42rem;
+  --container-3xl: 48rem;
+  --container-side: 400px;
+
+  /* Radius: controls are square */
+  --radius-*: initial;
+  --radius-control: 6px; /* buttons */
+  --radius-check: 3px; /* checkbox box */
+  --radius-media: 8px; /* images and cards */
+  --radius-pill: 999px;
+
+  /* Breakpoints: 393 is the base, then 768 / 1040 / 1440 */
+  --breakpoint-*: initial;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1040px;
+  --breakpoint-xl: 1440px;
+
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+
+  --animate-slide-in-left: slide-in-left 0.3s var(--ease-out);
+  --animate-slide-in-right: slide-in-right 0.3s var(--ease-out);
+  --animate-fade-in: fade-in 0.2s var(--ease-out);
+  --animate-marquee: marquee 40s linear infinite;
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  @keyframes slide-in-left {
+    from { transform: translateX(-100%); }
+    to { transform: translateX(0); }
+  }
+  @keyframes slide-in-right {
+    from { transform: translateX(100%); }
+    to { transform: translateX(0); }
+  }
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+}
+
+/* Page gutter and section rhythm change per breakpoint */
+:root {
+  --gutter: 24px;
+  --section-y: 64px;
+}
+@media (min-width: 768px) {
+  :root {
+    --gutter: 40px;
+    --section-y: 80px;
+  }
+}
+@media (min-width: 1040px) {
+  :root {
+    --gutter: 56px;
+    --section-y: 96px;
+  }
+}
+@media (min-width: 1440px) {
+  :root {
+    --gutter: 120px;
+    --section-y: 120px;
+  }
+}
+
+/* Components take data-state="Hover" | "Pressed" so the preview can show those states. */
+@custom-variant hover (&:is(:hover, [data-state="Hover"]));
+@custom-variant active (&:is(:active, [data-state="Pressed"]));
+
+@utility px-gutter {
+  padding-inline: var(--gutter);
+}
+@utility py-section {
+  padding-block: var(--section-y);
+}
+@utility eyebrow {
+  font-family: var(--font-sans);
+  font-size: var(--text-11);
+  line-height: var(--text-11--line-height);
+  letter-spacing: var(--text-11--letter-spacing);
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+/* Nav links, buttons and large labels: Body M size, uppercase. */
+@utility label-m {
+  font-family: var(--font-sans);
+  font-size: var(--text-14);
+  line-height: 20px;
+  letter-spacing: 0.08em;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+@utility label-xl {
+  font-family: var(--font-sans);
+  font-size: var(--text-16);
+  line-height: 24px;
+  letter-spacing: 0.08em;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+@layer base {
+  html {
+    background-color: var(--color-linen);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-size: var(--text-14);
+    line-height: var(--text-14--line-height);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    text-wrap: balance;
+  }
+  :focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 3px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      transition-duration: 0.01ms !important;
+      animation-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}

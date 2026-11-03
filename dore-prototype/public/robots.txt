@@ -1,0 +1,3 @@
+# Concept project. Fictional agency, not a real business.
+User-agent: *
+Disallow: /
