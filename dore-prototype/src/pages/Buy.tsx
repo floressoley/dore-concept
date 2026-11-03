@@ -7,6 +7,7 @@ import { Bed, ChevronDown, House, Sort, Wallet } from '../components/Icons.tsx'
 import { SearchField } from '../components/SearchField.tsx'
 import { cn } from '../lib/cn.ts'
 import { AREAS, LISTINGS } from '../data/homes.ts'
+import { usePageMeta } from '../lib/usePageMeta.ts'
 
 type Option = { value: string; label: string }
 
@@ -57,7 +58,7 @@ function Select({ label, icon, value, options, onChange, className }: { label: s
         onChange={(e) => onChange(e.target.value)}
         className={cn(
           'min-h-12 w-full cursor-pointer appearance-none rounded-control border bg-linen py-sm pr-xl pl-[44px] text-14 text-ink transition-colors hover:border-ink focus-visible:border-cerulean focus-visible:outline-none',
-          value ? 'border-cerulean' : 'border-ink/40',
+          value ? 'border-cerulean' : 'border-ink/55',
         )}
       >
         {options.map((o) => (
@@ -75,6 +76,7 @@ function Select({ label, icon, value, options, onChange, className }: { label: s
  * lives in the URL (?area=&type=&budget=&beds=&q=&sort=), which is what the Homepage search sends.
  */
 export default function Buy() {
+  usePageMeta('Homes', 'Browse the homes we have walked through, by area, type, budget and bedrooms.')
   const [params, setParams] = useSearchParams()
   const area = params.get('area') ?? ''
   const type = params.get('type') ?? ''
@@ -162,7 +164,7 @@ export default function Buy() {
             <p role="status" className="flex items-center gap-md text-14 text-ink-muted">
               {filtered.length} {filtered.length === 1 ? 'home' : 'homes'}
               {active && (
-                <button type="button" onClick={clear} className="eyebrow text-ink underline underline-offset-4 hover:text-cerulean">Clear all</button>
+                <button type="button" onClick={clear} className="eyebrow inline-flex min-h-6 items-center text-ink underline underline-offset-4 hover:text-cerulean">Clear all</button>
               )}
             </p>
             <Select label="Sort by" icon={<Sort size={18} />} value={sort} options={SORTS} onChange={(v) => set('sort', v)} className="w-[190px] sm:w-[240px]" />

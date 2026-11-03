@@ -5,7 +5,7 @@ import { ChevronDown } from './Icons.tsx'
 
 /** Shared look for text inputs, selects and textareas in forms. Add `cursor-pointer` on selects. */
 export const fieldClass =
-  'min-h-12 w-full rounded-control border border-ink/40 bg-linen px-md py-sm text-14 text-ink transition-colors placeholder:text-ink-muted hover:border-ink focus-visible:border-cerulean focus-visible:outline-none'
+  'min-h-12 w-full rounded-control border border-ink/55 bg-linen px-md py-sm text-14 text-ink transition-colors placeholder:text-ink-muted hover:border-ink focus-visible:border-cerulean focus-visible:outline-none'
 
 /** A label over a control. The control is a render prop so it can take the generated id. */
 export function Field({ label, className, children }: { label: string; className?: string; children: (id: string) => ReactNode }) {

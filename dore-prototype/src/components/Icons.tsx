@@ -1,6 +1,7 @@
 import {
   ArrowLeft as PhArrowLeft,
   ArrowRight as PhArrowRight,
+  ArrowUp as PhArrowUp,
   ArrowUpRight as PhArrowUpRight,
   ArrowsDownUp as PhArrowsDownUp,
   Bathtub as PhBathtub,
@@ -59,3 +60,4 @@ export const Sort = make(PhArrowsDownUp)
 export const Phone = make(PhPhone)
 export const Mail = make(PhEnvelopeSimple)
 export const Clock = make(PhClock)
+export const ArrowUp = make(PhArrowUp)

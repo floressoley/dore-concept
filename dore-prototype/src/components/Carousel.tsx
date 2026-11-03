@@ -90,7 +90,7 @@ export function Carousel({ label, children, tone = 'Light' }: CarouselProps) {
         {children}
       </div>
       <div className={cn('mt-2xl flex px-gutter', !overflow && 'hidden')}>
-        <div className={cn('inline-flex items-center gap-2xs rounded-pill border px-xs py-2xs', dark ? 'border-linen/60' : 'border-ink/40')}>
+        <div className={cn('inline-flex items-center gap-2xs rounded-pill border px-xs py-2xs', dark ? 'border-linen/60' : 'border-ink/55')}>
           <button type="button" aria-label="Previous" disabled={edge.start} onClick={() => go(-1)} className={button}>
             <ChevronLeft size={16} />
           </button>

@@ -1,8 +1,11 @@
 import { useEffect, useState } from 'react'
 import { Outlet, useLocation } from 'react-router'
+import { useSectionReveal } from '../lib/useSectionReveal.ts'
 import { cn } from '../lib/cn.ts'
+import { BackToTop } from './BackToTop.tsx'
 import { Footer } from './Footer.tsx'
 import { Navigation } from './Navigation.tsx'
+import { TopProgress } from './TopProgress.tsx'
 import { NavThemeContext } from './NavTheme.tsx'
 import type { NavThemeName } from './NavTheme.tsx'
 
@@ -21,8 +24,11 @@ function ScrollToTop() {
 /** Shared page frame: skip link, navigation, main landmark, footer. */
 export function Layout() {
   const [theme, setTheme] = useState<NavThemeName>('Plain')
+  const { pathname } = useLocation()
+  useSectionReveal(pathname)
   return (
     <NavThemeContext.Provider value={{ theme, setTheme }}>
+      <TopProgress />
       <ScrollToTop />
       <a
         href="#main"
@@ -35,6 +41,7 @@ export function Layout() {
         <Outlet />
       </main>
       <Footer />
+      <BackToTop />
     </NavThemeContext.Provider>
   )
 }

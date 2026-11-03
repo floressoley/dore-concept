@@ -5,6 +5,7 @@ import { Checkbox } from '../components/Checkbox.tsx'
 import { Field, FieldSelect, fieldClass } from '../components/Field.tsx'
 import { Clock, MapPin, Mail, Phone } from '../components/Icons.tsx'
 import { cn } from '../lib/cn.ts'
+import { usePageMeta } from '../lib/usePageMeta.ts'
 
 const INTERESTS = ['Buying a home', 'Selling a home', 'Private search', 'Legal and paperwork', 'Settling in', 'Something else']
 
@@ -57,6 +58,7 @@ function Message() {
  * form on the right. Stacks on tablet and mobile, form first after the details.
  */
 export default function Contact() {
+  usePageMeta('Contact', 'Ask about a home, book a viewing or arrange a valuation. We reply within a working day.')
   return (
     <div className="-mt-nav bg-pear-tree px-gutter pt-[calc(var(--spacing-nav)+var(--spacing-4xl))] pb-[96px] md:pt-[calc(var(--spacing-nav)+var(--spacing-5xl))] md:pb-[120px]">
       <div className="mx-auto grid max-w-page items-start gap-4xl lg:grid-cols-[1fr_1.05fr] lg:gap-6xl">

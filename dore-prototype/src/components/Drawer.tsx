@@ -1,3 +1,4 @@
+import { Link } from 'react-router'
 import { cn } from '../lib/cn.ts'
 import { Close } from './Icons.tsx'
 import { Wordmark } from './Logo.tsx'
@@ -46,9 +47,8 @@ export function DrawerPanel({ layout = 'Mobile', onClose, className }: DrawerPan
           <a href="tel:+000000000000" className="eyebrow text-linen hover:text-limone">+00 000 000 000</a>
         </div>
         <ul className="eyebrow flex gap-md text-azzuro">
-          <li><a href="#" className="hover:text-linen">Privacy</a></li>
-          <li><a href="#" className="hover:text-linen">Terms</a></li>
-          <li><a href="#" className="hover:text-linen">Cookies</a></li>
+          <li><Link to="/privacy" className="inline-flex min-h-6 items-center hover:text-linen">Privacy</Link></li>
+          <li><Link to="/terms" className="inline-flex min-h-6 items-center hover:text-linen">Terms</Link></li>
         </ul>
         <p className="eyebrow text-azzuro">Concept project. Fictional agency, not a real business.</p>
       </div>

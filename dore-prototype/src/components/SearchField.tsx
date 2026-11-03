@@ -25,7 +25,7 @@ export function SearchField({ size = 'Medium', value, defaultValue = '', placeho
   return (
     <div
       className={cn(
-        'group flex min-h-12 items-center gap-sm rounded-control border border-ink/40 px-md py-sm transition-colors focus-within:border-cerulean',
+        'group flex min-h-12 items-center gap-sm rounded-control border border-ink/55 px-md py-sm transition-colors focus-within:border-cerulean',
         current && 'border-cerulean',
         className,
       )}

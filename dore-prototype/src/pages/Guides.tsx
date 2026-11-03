@@ -9,6 +9,7 @@ import { SectionLabel } from '../components/SectionLabel.tsx'
 import { cn } from '../lib/cn.ts'
 import terraceTables from '../assets/journal/terrace-tables.webp'
 import { ARTICLES, CATEGORIES } from '../data/articles.ts'
+import { usePageMeta } from '../lib/usePageMeta.ts'
 
 const [featured, ...rest] = ARTICLES
 
@@ -37,6 +38,7 @@ function Quote() {
  * The featured story is left out of its own category so nothing appears twice.
  */
 export default function Guides() {
+  usePageMeta('Journal', 'Guides for buying and selling, and notes on living on the coast.')
   return (
     <>
       <div className="-mt-nav bg-citrine px-gutter pt-[calc(var(--spacing-nav)+var(--spacing-4xl))] pb-4xl md:pt-[calc(var(--spacing-nav)+var(--spacing-5xl))] md:pb-5xl">

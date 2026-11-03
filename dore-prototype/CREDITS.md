@@ -29,6 +29,9 @@ placeholders for fictional staff. Source and license to be confirmed.
 Three journal photos supplied by the project owner (`src/assets/journal/`), resized and converted to WebP. Source and license
 to be confirmed.
 
+One village archway photo supplied by the project owner (`src/assets/photos/about-archway.webp`), used on About. Source and
+license to be confirmed.
+
 One panoramic beach photo supplied by the project owner (`src/assets/photos/panoramic-view.webp`), used on Sell. Source and
 license to be confirmed.
 

@@ -26,7 +26,7 @@ export function Reveal({ className, children }: { className?: string; children: 
   return (
     <div
       ref={ref}
-      className={cn('transition-[opacity,transform] duration-[800ms] ease-out', shown ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0', className)}
+      className={cn('js-reveal transition-[opacity,transform] duration-[800ms] ease-out', shown ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0', className)}
     >
       {children}
     </div>

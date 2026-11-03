@@ -77,8 +77,8 @@ export function Footer() {
           <div className="flex flex-col items-center gap-md text-center md:col-start-2 md:row-start-1">
             <Logomark className="h-[88px] w-auto text-limone" />
             <ul className="eyebrow flex flex-wrap justify-center gap-md text-vino-bianco">
-              <li><Link to="/about#privacy" className="hover:text-linen">Privacy</Link></li>
-              <li><Link to="/about#terms" className="hover:text-linen">Terms</Link></li>
+              <li><Link to="/privacy" className="inline-flex min-h-6 items-center hover:text-linen">Privacy</Link></li>
+              <li><Link to="/terms" className="inline-flex min-h-6 items-center hover:text-linen">Terms</Link></li>
             </ul>
             <p className="eyebrow text-vino-bianco">© 2026 Doré, a concept project</p>
           </div>

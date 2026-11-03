@@ -31,7 +31,7 @@ export function SectionControl({ index, title, items, current, state = 'Default'
         onClick={() => setOpen((o) => !o)}
         className={cn(
           'flex w-full items-center gap-sm rounded-control border px-sm py-xs text-left transition-colors @min-[560px]:gap-sm @min-[560px]:px-5 @min-[560px]:py-sm',
-          open ? 'border-ink' : 'border-ink/40',
+          open ? 'border-ink' : 'border-ink/55',
           'hover:bg-vino-bianco active:border-ink active:bg-vino-bianco',
           state === 'Pressed' && 'border-ink',
         )}

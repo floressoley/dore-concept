@@ -14,6 +14,7 @@ import selling from '../assets/photos/selling.webp'
 import poolHouse from '../assets/photos/pool-house.webp'
 import windowToTheSea from '../assets/journal/window-to-the-sea.webp'
 import bellTowerRooftops from '../assets/journal/bell-tower-rooftops.webp'
+import { usePageMeta } from '../lib/usePageMeta.ts'
 
 const SERVICES = [
   { title: 'Buying', to: '/buy', image: buying, position: 'object-[50%_68%]', alt: 'Pale stone columns and a terracotta urn looking over a turquoise cove with a small boat' },
@@ -73,6 +74,7 @@ function Contact() {
  * contact form. Each photo is one link. Buying and Selling go to their pages, the rest go to the form.
  */
 export default function Services() {
+  usePageMeta('Services', 'Buying, selling, private search, legal paperwork and settling in, with one small team.')
   return (
     <>
       <div className="-mt-nav bg-pear-tree px-gutter pt-[calc(var(--spacing-nav)+var(--spacing-4xl))] pb-4xl md:pt-[calc(var(--spacing-nav)+var(--spacing-5xl))] md:pb-5xl">
@@ -91,7 +93,7 @@ export default function Services() {
                   <div className={cn('w-full overflow-hidden lg:aspect-auto lg:h-[320px]', i === 4 ? 'aspect-[4/3] sm:aspect-[21/10]' : 'aspect-[4/3]')}>
                     <Media src={s.image} alt={s.alt} className={cn('transition-transform duration-700 ease-out group-hover:scale-[1.03]', s.position)} />
                   </div>
-                  <span aria-hidden="true" className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-ink/45 to-transparent" />
+                  <span aria-hidden="true" className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-ink/60 to-transparent" />
                   <span className="label-m absolute bottom-md left-md inline-flex min-h-11 items-center gap-sm rounded-control border border-linen px-md text-linen transition-colors group-hover:border-limone group-hover:text-limone">
                     {s.title}
                     <ArrowUpRight size={16} />

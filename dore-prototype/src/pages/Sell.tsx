@@ -10,7 +10,9 @@ import { Reveal } from '../components/Reveal.tsx'
 import { SectionLabel } from '../components/SectionLabel.tsx'
 import { VideoBackdrop } from '../components/VideoBackdrop.tsx'
 import { cn } from '../lib/cn.ts'
+import wavesPoster from '../assets/video/waves-poster.webp'
 import panoramicView from '../assets/photos/panoramic-view.webp'
+import { usePageMeta } from '../lib/usePageMeta.ts'
 
 const TYPES = ['Apartment', 'Townhouse', 'Villa', 'Farmhouse']
 const BEDROOMS = ['1', '2', '3', '4', '5', '6 or more']
@@ -113,11 +115,12 @@ function Faq() {
  * one seller's quote and the questions sellers ask.
  */
 export default function Sell() {
+  usePageMeta('Sell', 'Sell with a plan: a proper price, professional photography and a few weeks of preparation. Request a valuation.')
   useNavTheme('Photo')
   return (
     <>
       <section className="relative isolate px-gutter pt-[calc(var(--spacing-nav)+var(--spacing-4xl))] pb-[96px] text-linen md:pt-[calc(var(--spacing-nav)+var(--spacing-5xl))] md:pb-[120px]">
-        <VideoBackdrop src="/video/waves.mp4" overlay="from-ink/60 via-ink/40 to-ink/60" blur />
+        <VideoBackdrop src="/video/waves.mp4" poster={wavesPoster} overlay="from-ink/60 via-ink/40 to-ink/60" blur />
         <div className="mx-auto grid max-w-page items-start gap-4xl lg:grid-cols-[1.1fr_1fr] lg:gap-6xl">
           <header className="flex flex-col gap-lg lg:pt-3xl">
             <h1 className="text-56 text-limone md:text-72">Sell with a plan, not a sign</h1>

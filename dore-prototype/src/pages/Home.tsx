@@ -3,7 +3,9 @@ import { AreaShowcase } from '../components/AreaShowcase.tsx'
 import type { Area } from '../components/AreaShowcase.tsx'
 import { ArticleCard } from '../components/ArticleCard.tsx'
 import { Carousel, CarouselItem } from '../components/Carousel.tsx'
+import heroPoster from '../assets/video/hero-poster.webp'
 import { LISTINGS } from '../data/homes.ts'
+import { TEAM } from '../data/team.ts'
 import { Logomark } from '../components/Logo.tsx'
 import { HomesCollection } from '../components/HomesCollection.tsx'
 import type { CollectionHome } from '../components/HomesCollection.tsx'
@@ -16,10 +18,6 @@ import { VideoBackdrop } from '../components/VideoBackdrop.tsx'
 import { TextLink } from '../components/TextLink.tsx'
 import { cn } from '../lib/cn.ts'
 import harbourDistrict from '../assets/photos/harbour-district.webp'
-import managingPartner from '../assets/team/managing-partner.webp'
-import headOfSales from '../assets/team/head-of-sales.webp'
-import buyersAgent from '../assets/team/buyers-agent.webp'
-import privateClientsAdvisor from '../assets/team/private-clients-advisor.webp'
 import windowToTheSea from '../assets/journal/window-to-the-sea.webp'
 import cliffsideVillage from '../assets/journal/cliffside-village.webp'
 import bellTowerRooftops from '../assets/journal/bell-tower-rooftops.webp'
@@ -28,6 +26,7 @@ import oldTown from '../assets/photos/old-town.webp'
 import findAHome from '../assets/illustrations/find-a-home.svg'
 import readFirst from '../assets/illustrations/read-first.svg'
 import sellingWithCare from '../assets/illustrations/selling-with-care.svg'
+import { usePageMeta } from '../lib/usePageMeta.ts'
 
 const Section = ({ className, children }: { className?: string; children: ReactNode }) => (
   <section className={cn('px-gutter py-section', className)}>
@@ -49,13 +48,6 @@ const AREAS: Area[] = [
 
 const HOMES: CollectionHome[] = LISTINGS.slice(0, 4)
 
-const TEAM = [
-  { name: 'Pau Vellis', role: 'Managing partner', image: managingPartner },
-  { name: 'Marta Sorrel', role: 'Head of sales', image: headOfSales },
-  { name: 'Joan Arrenti', role: 'Buyer’s agent', image: buyersAgent },
-  { name: 'Elia Marin', role: 'Private clients advisor', image: privateClientsAdvisor },
-]
-
 const GUIDES = [
   { category: 'Buying', readTime: '8 min read', title: 'Buying near the water, step by step', image: windowToTheSea, position: 'object-[50%_38%]', alt: 'Boats at anchor on blue water, seen through an opening in an old stone wall', to: '/guides/buying-near-the-water' },
   { category: 'Selling', readTime: '6 min read', title: 'How to price a home that faces west', image: cliffsideVillage, position: 'object-[50%_42%]', alt: 'Whitewashed houses with shutters on a cliff above a deep blue sea', to: '/guides/pricing-west' },
@@ -67,7 +59,7 @@ function Hero() {
 
   return (
     <section className="relative isolate flex min-h-[640px] items-center justify-center bg-ink px-gutter pt-[calc(var(--spacing-nav)+var(--spacing-5xl))] pb-5xl text-linen md:min-h-[720px] lg:h-svh lg:max-h-[900px]">
-      <VideoBackdrop src="/video/drone-view-property.mp4" />
+      <VideoBackdrop src="/video/drone-view-property.mp4" poster={heroPoster} />
 
       <div className="flex w-full flex-col items-center gap-lg text-center">
         <SectionLabel tone="Inverse">Doré, Mediterranean homes</SectionLabel>
@@ -151,6 +143,7 @@ function Journal() {
 }
 
 export default function Home() {
+  usePageMeta('Doré', 'Mediterranean homes, chosen slowly. A concept project: a fictional agency, not a real business.')
   return (
     <>
       <Hero />
