@@ -7,6 +7,8 @@ type ArticleCardProps = {
   readTime: string
   title: string
   image?: string
+  /** Tailwind object-position class, to frame a portrait photo in the landscape slot. */
+  position?: string
   imageAlt: string
   to: string
   /** Force Hover for documentation. Real hover works without it. */
@@ -17,16 +19,16 @@ type ArticleCardProps = {
  * Figma "Device": Desktop is 440 wide, Mobile 345. The card fills its column, so both come
  * from the grid. Hover turns the bottom line cerulean.
  */
-export function ArticleCard({ category, readTime, title, image, imageAlt, to, state = 'Default' }: ArticleCardProps) {
+export function ArticleCard({ category, readTime, title, image, position, imageAlt, to, state = 'Default' }: ArticleCardProps) {
   return (
     <article
       data-state={state === 'Hover' ? 'Hover' : undefined}
       className={cn('group relative flex w-full flex-col gap-sm border-b border-ink/25 pb-md transition-colors', 'hover:border-cerulean')}
     >
-      <div className="aspect-[11/7] w-full overflow-hidden rounded-media">
-        <Media src={image} alt={imageAlt} tone="sun" className="transition-transform duration-500 group-hover:scale-[1.02]" />
+      <div className="aspect-[11/7] w-full overflow-hidden">
+        <Media src={image} alt={imageAlt} tone="sun" className={cn('transition-transform duration-500 group-hover:scale-[1.02]', position)} />
       </div>
-      <p className="eyebrow flex items-center gap-xs text-ink-muted">
+      <p className="eyebrow flex items-center gap-xs text-ink">
         <span>{category}</span>
         <span aria-hidden="true" className="h-[11px] w-px bg-ink/30" />
         <span>{readTime}</span>

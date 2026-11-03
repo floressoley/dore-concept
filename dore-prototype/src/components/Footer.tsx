@@ -1,70 +1,101 @@
+import { useState } from 'react'
+import type { FormEvent } from 'react'
 import { Link } from 'react-router'
-import { Wordmark } from './Logo.tsx'
+import { ArrowRight } from './Icons.tsx'
+import { Checkbox } from './Checkbox.tsx'
+import { Logomark } from './Logo.tsx'
 import { SectionLabel } from './SectionLabel.tsx'
 import { TextLink } from './TextLink.tsx'
 
-const COLUMNS = [
-  {
-    title: 'Explore',
-    links: [
-      { label: 'Homes', to: '/buy' },
-      { label: 'Areas', to: '/buy#areas' },
-      { label: 'Sell', to: '/sell' },
-      { label: 'Journal', to: '/guides' },
-    ],
-  },
-  {
-    title: 'Agency',
-    links: [
-      { label: 'About', to: '/about' },
-      { label: 'Agents', to: '/about#team' },
-      { label: 'Contact', to: '/about#contact' },
-    ],
-  },
+const LEFT = [
+  { label: 'Homes', to: '/buy' },
+  { label: 'Services', to: '/services' },
+  { label: 'Sell', to: '/sell' },
+  { label: 'Journal', to: '/guides' },
 ]
 
+const RIGHT = [
+  { label: 'About', to: '/about' },
+  { label: 'Agents', to: '/about#team' },
+  { label: 'Contact', to: '/contact' },
+]
+
+function JoinList() {
+  const [sent, setSent] = useState(false)
+  const submit = (e: FormEvent) => {
+    e.preventDefault()
+    setSent(true)
+  }
+  return (
+    <div className="mx-auto flex max-w-intro flex-col items-center gap-3xl text-center">
+      <div className="flex flex-col items-center gap-lg">
+        <SectionLabel tone="Chalk">Off market</SectionLabel>
+        <h2 className="text-40 md:text-56">Join the list</h2>
+        <p className="max-w-split text-16">A few homes each season, shown to a few people first. No noise in between.</p>
+      </div>
+      {sent ? (
+        <p role="status" className="text-14">
+          Thank you. This is a concept site, so nothing was sent and nothing was stored.
+        </p>
+      ) : (
+        <form onSubmit={submit} className="flex w-full max-w-[560px] flex-col gap-md text-left">
+          <div className="flex items-center gap-sm border-b border-linen">
+            <label htmlFor="join-email" className="sr-only">Email address</label>
+            <input
+              id="join-email"
+              type="email"
+              required
+              placeholder="Email address"
+              className="min-h-12 flex-1 bg-transparent text-16 text-linen placeholder:text-vino-bianco focus-visible:outline-none"
+            />
+            <button
+              type="submit"
+              aria-label="Join the list"
+              className="flex size-11 items-center justify-center text-linen transition-colors hover:text-limone focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current"
+            >
+              <ArrowRight size={20} />
+            </button>
+          </div>
+          <Checkbox inverse required label="I accept the Privacy and Terms" />
+        </form>
+      )}
+    </div>
+  )
+}
+
 /**
- * Figma "Layout": Desktop, Tablet, Mobile. One markup, the grid collapses:
- * 4 columns from 1040, 2 columns from 768, 1 column below.
+ * The final call to action and the footer are one Cerulean block. The join form sits on top,
+ * then a single row: links left, logomark with the legal lines centred, links right. Below 768 it stacks.
  */
 export function Footer() {
   return (
-    <footer className="bg-ink text-linen">
-      <div className="mx-auto max-w-page px-gutter pt-5xl pb-2xl lg:pt-6xl">
-        <div className="grid gap-4xl md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1.2fr]">
-          <div className="flex flex-col gap-lg md:col-span-2 lg:col-span-1">
-            <Wordmark className="h-10 w-auto self-start text-linen" />
-            <p className="font-display text-28 max-w-quote text-linen">Doré, Mediterranean homes</p>
-          </div>
-          {COLUMNS.map((col) => (
-            <div key={col.title} className="flex flex-col gap-md">
-              <SectionLabel tone="Stone">{col.title}</SectionLabel>
-              <ul className="flex flex-col gap-xs">
-                {col.links.map((l) => (
-                  <li key={l.to}>
-                    <TextLink to={l.to} inverse>{l.label}</TextLink>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-          <div className="flex flex-col gap-md">
-            <SectionLabel tone="Stone">Contact</SectionLabel>
-            <address className="flex flex-col gap-xs not-italic">
-              <a href="mailto:hello@dore.example" className="text-14 text-linen hover:text-limone">hello@dore.example</a>
-              <a href="tel:+000000000000" className="text-14 text-linen hover:text-limone">+00 000 000 000</a>
-              <span className="text-14 text-azzuro">Calle Ficticia 0, Costa Imaginaria</span>
-            </address>
-          </div>
-        </div>
+    <footer className="bg-cerulean text-linen">
+      <div className="mx-auto max-w-page px-gutter pt-[96px] pb-4xl md:pt-[120px]">
+        <JoinList />
 
-        <div className="mt-5xl flex flex-col gap-md border-t border-linen/25 pt-lg lg:flex-row lg:items-center lg:justify-between">
-          <p className="eyebrow text-azzuro">Concept project. Fictional agency, not a real business.</p>
-          <ul className="eyebrow flex flex-wrap gap-lg text-azzuro">
-            <li><Link to="/about#privacy" className="hover:text-linen">Privacy</Link></li>
-            <li><Link to="/about#terms" className="hover:text-linen">Terms</Link></li>
-            <li><span>© 2026 Doré</span></li>
-          </ul>
+        <div className="mt-[96px] grid items-center gap-4xl md:mt-[120px] md:grid-cols-[1fr_auto_1fr]">
+          <div className="flex flex-col items-center gap-md text-center md:col-start-2 md:row-start-1">
+            <Logomark className="h-[88px] w-auto text-limone" />
+            <ul className="eyebrow flex flex-wrap justify-center gap-md text-vino-bianco">
+              <li><Link to="/about#privacy" className="hover:text-linen">Privacy</Link></li>
+              <li><Link to="/about#terms" className="hover:text-linen">Terms</Link></li>
+            </ul>
+            <p className="eyebrow text-vino-bianco">© 2026 Doré, a concept project</p>
+          </div>
+          <nav aria-label="Explore" className="md:col-start-1 md:row-start-1">
+            <ul className="flex flex-wrap justify-center gap-x-xl gap-y-sm md:justify-start">
+              {LEFT.map((l) => (
+                <li key={l.to}><TextLink to={l.to} size="Medium" inverse>{l.label}</TextLink></li>
+              ))}
+            </ul>
+          </nav>
+          <nav aria-label="Agency" className="md:col-start-3 md:row-start-1">
+            <ul className="flex flex-wrap justify-center gap-x-xl gap-y-sm md:justify-end">
+              {RIGHT.map((l) => (
+                <li key={l.to}><TextLink to={l.to} size="Medium" inverse>{l.label}</TextLink></li>
+              ))}
+            </ul>
+          </nav>
         </div>
       </div>
     </footer>

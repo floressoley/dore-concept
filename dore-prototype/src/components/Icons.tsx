@@ -2,17 +2,24 @@ import {
   ArrowLeft as PhArrowLeft,
   ArrowRight as PhArrowRight,
   ArrowUpRight as PhArrowUpRight,
+  ArrowsDownUp as PhArrowsDownUp,
+  Bathtub as PhBathtub,
+  Bed as PhBed,
   CaretDown as PhCaretDown,
   CaretLeft as PhCaretLeft,
   CaretRight as PhCaretRight,
   CaretUp as PhCaretUp,
   Check as PhCheck,
+  Clock as PhClock,
+  EnvelopeSimple as PhEnvelopeSimple,
   House as PhHouse,
   List as PhList,
   MagnifyingGlass as PhMagnifyingGlass,
   MapPin as PhMapPin,
   Minus as PhMinus,
+  Phone as PhPhone,
   Plus as PhPlus,
+  Ruler as PhRuler,
   Sun as PhSun,
   Wallet as PhWallet,
   X as PhX,
@@ -45,3 +52,10 @@ export const MapPin = make(PhMapPin)
 export const House = make(PhHouse)
 export const Wallet = make(PhWallet)
 export const Sun = make(PhSun)
+export const Bed = make(PhBed)
+export const Bath = make(PhBathtub)
+export const Area = make(PhRuler)
+export const Sort = make(PhArrowsDownUp)
+export const Phone = make(PhPhone)
+export const Mail = make(PhEnvelopeSimple)
+export const Clock = make(PhClock)

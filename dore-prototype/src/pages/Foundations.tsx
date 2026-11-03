@@ -1,7 +1,7 @@
 import { Logomark, Wordmark } from '../components/Logo.tsx'
 
 const COLORS = [
-  { name: "Linen", token: "linen", hex: "#FEFAF3", role: "Base surface, text on dark" },
+  { name: "Linen", token: "linen", hex: "#EFE8E0", role: "Base surface, text on dark" },
   { name: "Vino Bianco", token: "vino-bianco", hex: "#FFE4C4", role: "Soft tint" },
   { name: "Limone", token: "limone", hex: "#FFF19D", role: "Highlight surface" },
   { name: "Azzuro", token: "azzuro", hex: "#B1D2DD", role: "Soft sea tint" },

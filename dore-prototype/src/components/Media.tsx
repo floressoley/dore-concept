@@ -17,7 +17,7 @@ const TONES = {
 /** Image slot. Without a src it renders a tinted placeholder that still carries the alt text. */
 export function Media({ src, alt, className, tone = 'sea' }: MediaProps) {
   if (src) {
-    return <img src={src} alt={alt} loading="lazy" className={cn('block h-full w-full object-cover', className)} />
+    return <img src={src} alt={alt} loading="lazy" draggable={false} className={cn('block h-full w-full object-cover', className)} />
   }
   return <div role="img" aria-label={alt} className={cn('h-full w-full', TONES[tone], className)} />
 }

@@ -6,11 +6,11 @@ import { Overlay } from './Overlay.tsx'
 
 export const NAV_LINKS = [
   { label: 'Homes', to: '/buy' },
-  { label: 'Areas', to: '/buy#areas' },
+  { label: 'Services', to: '/services' },
   { label: 'Agents', to: '/about#team' },
   { label: 'Journal', to: '/guides' },
   { label: 'Sell', to: '/sell' },
-  { label: 'Contact', to: '/about#contact' },
+  { label: 'Contact', to: '/contact' },
 ]
 
 type DrawerPanelProps = {

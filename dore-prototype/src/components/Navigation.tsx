@@ -11,14 +11,14 @@ import { SidePanelOverlay } from './SidePanel.tsx'
 
 export const NAV_LEFT = [
   { label: 'Homes', to: '/buy' },
-  { label: 'Areas', to: '/buy#areas' },
+  { label: 'Services', to: '/services' },
   { label: 'Agents', to: '/about#team' },
 ]
 
 export const NAV_RIGHT = [
   { label: 'Journal', to: '/guides' },
   { label: 'Sell', to: '/sell' },
-  { label: 'Contact', to: '/about#contact' },
+  { label: 'Contact', to: '/contact' },
 ]
 
 type IconButtonProps = { label: string; onClick: () => void; children: React.ReactNode; onDark: boolean; className?: string }
@@ -100,7 +100,7 @@ export function Navigation() {
               <NavItem key={l.to} to={l.to} tone={onDark ? 'Dark' : 'Light'}>{l.label}</NavItem>
             ))}
           </nav>
-          <NavItem to="/about#contact" tone={onDark ? 'Dark' : 'Light'} className="hidden md:inline-flex lg:hidden">Contact</NavItem>
+          <NavItem to="/contact" tone={onDark ? 'Dark' : 'Light'} className="hidden md:inline-flex lg:hidden">Contact</NavItem>
           <IconButton label="Search" onClick={() => setSearchOpen(true)} onDark={onDark} className="-mr-sm">
             <Search size={24} />
           </IconButton>

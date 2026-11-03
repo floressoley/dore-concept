@@ -10,7 +10,7 @@
 @theme {
   /* Palette: Sun and Sea. Hex values from the brand palette. */
   --color-*: initial;
-  --color-linen: #fefaf3; /* base surface, and "white" text on dark */
+  --color-linen: #efe8e0; /* base surface, and "white" text on dark */
   --color-vino-bianco: #ffe4c4; /* soft tint */
   --color-limone: #fff19d; /* highlight surface */
   --color-azzuro: #b1d2dd; /* soft sea tint */
@@ -109,6 +109,10 @@
   --animate-slide-in-right: slide-in-right 0.3s var(--ease-out);
   --animate-fade-in: fade-in 0.2s var(--ease-out);
   --animate-marquee: marquee 40s linear infinite;
+  --animate-spin-slow: spin-slow 60s linear infinite;
+  @keyframes spin-slow {
+    to { transform: rotate(360deg); }
+  }
   @keyframes marquee {
     from { transform: translateX(0); }
     to { transform: translateX(-50%); }

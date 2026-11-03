@@ -1,7 +1,7 @@
 import type { ButtonHTMLAttributes, ReactNode } from 'react'
 import { Link } from 'react-router'
 import { cn } from '../lib/cn.ts'
-import { ArrowUpRight } from './Icons.tsx'
+import { ArrowRight, ArrowUpRight } from './Icons.tsx'
 
 export type ButtonVariant = 'Primary' | 'Secondary'
 export type ButtonState = 'Default' | 'Hover' | 'Pressed' | 'Disabled'
@@ -14,7 +14,7 @@ type ButtonProps = {
   /** On dark photos or video: linen button instead of ink. */
   inverse?: boolean
   /** Figma "Arrow" */
-  arrow?: boolean
+  arrow?: boolean | 'right'
   /** Icon shown before the label, side by side with it. */
   icon?: ReactNode
   to?: string
@@ -48,7 +48,7 @@ export function Button({ variant = 'Primary', state = 'Default', arrow = false, 
     <>
       {icon}
       <span>{children}</span>
-      {arrow && <ArrowUpRight size={20} />}
+      {arrow === 'right' ? <ArrowRight size={20} /> : arrow && <ArrowUpRight size={20} />}
     </>
   )
   const dataState = state === 'Hover' || state === 'Pressed' ? state : undefined
